@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "nativeMoovies",
+    "slug": "nativeMoovies",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "nativeMoovies"
+}
