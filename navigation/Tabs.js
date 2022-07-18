@@ -8,12 +8,9 @@ const Tab = createBottomTabNavigator();
 
 const Tabs = () => {
   return (
-    <Tab.Navigator
-      initialRouteName="Tv"
-      screenOptions={{ tabBarLabelStyle: { color: "red" } }}
-    >
+    <Tab.Navigator initialRouteName="Tv">
       <Tab.Screen name="Movie" component={Movie} />
-      <Tab.Screen name="Tv" component={Tv} />
+      <Tab.Screen name="Tv" component={Tv} options={{ tabBarBadge: 5 }} />
       <Tab.Screen name="Search" component={Search} />
     </Tab.Navigator>
   );
