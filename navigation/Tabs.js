@@ -22,7 +22,7 @@ const Tabs = () => {
         component={Tv}
         options={{
           headerTitleStyle: { color: "gold" },
-          headerRight: () => (
+          headerLeft: () => (
             <View>
               <Text>hi</Text>
             </View>
