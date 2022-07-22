@@ -11,7 +11,7 @@ const Tabs = () => {
   return (
     <Tab.Navigator
       initialRouteName="Tv"
-      screenOptions={{ 
+      screenOptions={{
         tabBarActiveTintColor: "gold",
         tabBarInactiveTintColor: "black",
       }}
@@ -24,7 +24,7 @@ const Tabs = () => {
           headerTitleStyle: { color: "gold" },
           headerLeft: () => (
             <View>
-              <Text>hi</Text>
+              <Text>hi my name is </Text>
             </View>
           ),
         }}
