@@ -24,7 +24,7 @@ const Tabs = () => {
           headerTitleStyle: { color: "gold" },
           headerLeft: () => (
             <View>
-              <Text>hi my name is </Text>
+              <Text>hi my name is sang</Text>
             </View>
           ),
         }}
