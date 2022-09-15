@@ -1,6 +1,6 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { View, Text } from "react-native-web";
+import { View, Text } from "react-native";
 
 const ScreenOne = () => (
   <View>
@@ -20,7 +20,7 @@ const ScreenThree = () => (
   </View>
 );
 
-const NativeStack = createNativeStackNavigator;
+const NativeStack = createNativeStackNavigator();
 
 const Stack = () => (
   <NativeStack.Navigator>
