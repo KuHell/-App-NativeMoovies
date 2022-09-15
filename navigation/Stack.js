@@ -14,10 +14,20 @@ const ScreenOne = ({ navigation: { navigate } }) => (
   </>
 );
 
-const ScreenTwo = ({ navigation: { navigate } }) => (
-  <TouchableOpacity onPress={() => navigate("Three")}>
-    <Text>Go Three</Text>
-  </TouchableOpacity>
+const ScreenTwo = ({ navigation: { navigate, goBack, setOptions } }) => (
+  <>
+    <TouchableOpacity onPress={() => navigate("Three")}>
+      <Text>Go Three</Text>
+    </TouchableOpacity>
+
+    <TouchableOpacity onPress={() => goBack()}>
+      <Text>Go Back</Text>
+    </TouchableOpacity>
+
+    <TouchableOpacity onPress={() => setOptions({ title: "Hello" })}>
+      <Text>Change Title</Text>
+    </TouchableOpacity>
+  </>
 );
 
 const ScreenThree = ({ navigation: { navigate } }) => (
@@ -29,7 +39,11 @@ const ScreenThree = ({ navigation: { navigate } }) => (
 const NativeStack = createNativeStackNavigator();
 
 const Stack = () => (
-  <NativeStack.Navigator>
+  <NativeStack.Navigator
+    screenOptions={{
+      headerBackTitleVisible: false,
+    }}
+  >
     <NativeStack.Screen name="One" component={ScreenOne} />
     <NativeStack.Screen name="Two" component={ScreenTwo} />
     <NativeStack.Screen name="Three" component={ScreenThree} />
