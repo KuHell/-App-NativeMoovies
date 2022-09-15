@@ -1,23 +1,29 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 
-const ScreenOne = () => (
-  <View>
-    <Text>One</Text>
-  </View>
+const ScreenOne = ({ navigation: { navigate } }) => (
+  <>
+    <TouchableOpacity onPress={() => navigate("Two")}>
+      <Text>Go Two</Text>
+    </TouchableOpacity>
+
+    <TouchableOpacity onPress={() => navigate("Three")}>
+      <Text>Go Three</Text>
+    </TouchableOpacity>
+  </>
 );
 
-const ScreenTwo = () => (
-  <View>
-    <Text>Two</Text>
-  </View>
+const ScreenTwo = ({ navigation: { navigate } }) => (
+  <TouchableOpacity onPress={() => navigate("Three")}>
+    <Text>Go Three</Text>
+  </TouchableOpacity>
 );
 
-const ScreenThree = () => (
-  <View>
-    <Text>Three</Text>
-  </View>
+const ScreenThree = ({ navigation: { navigate } }) => (
+  <TouchableOpacity onPress={() => navigate("One")}>
+    <Text>Go One</Text>
+  </TouchableOpacity>
 );
 
 const NativeStack = createNativeStackNavigator();
