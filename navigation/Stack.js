@@ -41,12 +41,19 @@ const NativeStack = createNativeStackNavigator();
 const Stack = () => (
   <NativeStack.Navigator
     screenOptions={{
+      // presentation: "modal",
+      animation: "fade",
+      headerTintColor: "black",
       headerBackTitleVisible: false,
     }}
   >
     <NativeStack.Screen name="One" component={ScreenOne} />
     <NativeStack.Screen name="Two" component={ScreenTwo} />
-    <NativeStack.Screen name="Three" component={ScreenThree} />
+    <NativeStack.Screen
+      options={{ presentation: "modal" }}
+      name="Three"
+      component={ScreenThree}
+    />
   </NativeStack.Navigator>
 );
 
