@@ -48,7 +48,7 @@ const Stack = () => (
     }}
   >
     <NativeStack.Screen name="One" component={ScreenOne} />
-    <NativeStack.Screen name="Two" component={ScreenTwo} />
+    <NativeStack.Screen name="TwoT" component={ScreenTwo} />
     <NativeStack.Screen
       options={{ presentation: "modal" }}
       name="Three"
