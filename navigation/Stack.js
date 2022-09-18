@@ -45,10 +45,11 @@ const Stack = () => (
       animation: "fade",
       headerTintColor: "black",
       headerBackTitleVisible: false,
+      headerBackTitleVisible: false,
     }}
   >
     <NativeStack.Screen name="One" component={ScreenOne} />
-    <NativeStack.Screen name="TwoT" component={ScreenTwo} />
+    <NativeStack.Screen name="TwoTf" component={ScreenTwo} />
     <NativeStack.Screen
       options={{ presentation: "modal" }}
       name="Three"
