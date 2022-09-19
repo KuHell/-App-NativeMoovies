@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, ThemeProvider } from "@react-navigation/native";
 import Tabs from "./navigation/Tabs";
 import Stack from "./navigation/Stack";
 import axios from "axios";
 import Root from "./navigation/Root";
+import { useColorScheme } from "react-native";
+import { darkTheme, lightTheme } from "./styled";
 
 export default function App() {
   // useEffect(() => {
@@ -19,9 +21,13 @@ export default function App() {
   //       console.log(error);
   //     });
   // }, []);
+
+  const isDark = useColorScheme() === "dark";
   return (
-    <NavigationContainer>
-      <Root />
-    </NavigationContainer>
+    <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+      <NavigationContainer>
+        <Root />
+      </NavigationContainer>
+    </ThemeProvider>
   );
 }
