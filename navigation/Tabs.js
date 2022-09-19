@@ -10,7 +10,7 @@ const Tab = createBottomTabNavigator();
 const Tabs = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Tv"
+      initialRouteName="Movie"
       screenOptions={{
         tabBarActiveTintColor: "gold",
         tabBarInactiveTintColor: "black",
@@ -21,10 +21,15 @@ const Tabs = () => {
         name="Tv"
         component={Tv}
         options={{
-          headerTitleStyle: { color: "gold" },
+          // headerTitleStyle: { color: "gold" },
           headerLeft: () => (
             <View>
-              <Text>hi my name is sang hyun</Text>
+              <Text>hi</Text>
+            </View>
+          ),
+          headerRight: () => (
+            <View>
+              <Text>hi</Text>
             </View>
           ),
         }}

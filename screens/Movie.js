@@ -7,7 +7,7 @@ const Movie = ({ navigation: { navigate } }) => {
       onPress={() => navigate("Stack", { screen: "Three" })}
       style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
     >
-      <Text>Movie good boy</Text>
+      <Text>Movie</Text>
     </TouchableOpacity>
   );
 };
