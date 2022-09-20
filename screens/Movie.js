@@ -1,22 +1,17 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components/native";
-// import { View, Text, TouchableOpacity } from "react-native";
+// import styled from "styled-components/native";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import tw from "tailwind-react-native-classnames";
 import Swiper from "react-native-web-swiper";
 import { ScrollView } from "react-native-gesture-handler";
 import { ActivityIndicator, Dimensions, Image } from "react-native";
 import { makeImgPath } from "../utils";
+import { BlurView, VibrancyView } from "@react-native-community/blur";
 
 const API_KEY = "1224c35a1ddd3e3ddd3fdd67d6b5aace";
 
-const Container = styled.ScrollView``;
-const View = styled.View`
-  flex: 1;
-`;
-
 const { height: Screen_HEIGHT } = Dimensions.get("window");
-
 const Movie: React.FC<NativeStackScreenProps<any, "Movie">> = () => {
   const [loading, setLoading] = useState(true);
   const [nowPlaying, setNowPlaying] = useState([]);
@@ -37,7 +32,7 @@ const Movie: React.FC<NativeStackScreenProps<any, "Movie">> = () => {
       <ActivityIndicator />
     </View>
   ) : (
-    <Container>
+    <ScrollView>
       <Swiper
         loop
         timeout={3.5}
@@ -46,16 +41,23 @@ const Movie: React.FC<NativeStackScreenProps<any, "Movie">> = () => {
       >
         {nowPlaying.map((movie) => {
           return (
-            <View key={movie.id}>
+            <View style={tw`flex-1 justify-center items-center`} key={movie.id}>
               <Image
-                style={tw`flex-1`}
+                style={tw`absolute w-full h-full`}
                 source={{ uri: makeImgPath(movie.backdrop_path) }}
               />
+              <BlurView
+                intensity={80}
+                blurType="light"
+                style={tw`absolute w-full h-full`}
+              >
+                <Text>{movie.original_title}</Text>
+              </BlurView>
             </View>
           );
         })}
       </Swiper>
-    </Container>
+    </ScrollView>
   );
 };
 
