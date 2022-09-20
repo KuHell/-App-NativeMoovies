@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import tw from "tailwind-react-native-classnames";
-import Swiper from "react-native-web-swiper";
+import Swiper from "react-native-swiper";
 import { ScrollView } from "react-native-gesture-handler";
 import { ActivityIndicator, Dimensions, Image } from "react-native";
 import { makeImgPath } from "../utils";
@@ -32,11 +32,14 @@ const Movie: React.FC<NativeStackScreenProps<any, "Movie">> = () => {
       <ActivityIndicator />
     </View>
   ) : (
-    <ScrollView>
+    <ScrollView bounces={false}>
       <Swiper
+        horizontal
         loop
-        timeout={3.5}
-        controlsEnabled={false}
+        autoplay
+        autoplaytimeout={3.5}
+        showsButtons={false}
+        showsPagination={false}
         containerStyle={{ width: "100%", height: Screen_HEIGHT / 4 }}
       >
         {nowPlaying.map((movie) => {
@@ -51,7 +54,18 @@ const Movie: React.FC<NativeStackScreenProps<any, "Movie">> = () => {
                 blurType="light"
                 style={tw`absolute w-full h-full`}
               >
-                <Text>{movie.original_title}</Text>
+                <View style={tw`flex-row h-full justify-center items-center`}>
+                  <Image
+                    style={tw`w-28 h-40 rounded-md`}
+                    source={{ uri: makeImgPath(movie.backdrop_path) }}
+                  />
+                  <View style={tw`w-5/12 ml-4`}>
+                    <Text style={tw`text-base font-bold text-black`}>
+                      {movie.original_title}
+                    </Text>
+                    <Text>{movie.overview}</Text>
+                  </View>
+                </View>
               </BlurView>
             </View>
           );
