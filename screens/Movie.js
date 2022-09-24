@@ -39,6 +39,7 @@ const Movie: React.FC<NativeStackScreenProps<any, "Movie">> = () => {
         autoplay
         autoplaytimeout={3.5}
         showsButtons={false}
+        showsButtons={false}
         showsPagination={false}
         containerStyle={{ width: "100%", height: Screen_HEIGHT / 4 }}
       >
