@@ -37,6 +37,7 @@ const Movie: React.FC<NativeStackScreenProps<any, "Movie">> = () => {
         horizontal
         loop
         autoplay
+        autoplay
         autoplaytimeout={3.5}
         autoplaytimeout={3.5}
         showsButtons={false}
